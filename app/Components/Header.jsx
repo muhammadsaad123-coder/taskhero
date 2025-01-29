@@ -8,6 +8,7 @@ import msg from '../pictures/Chat.png'
 import booking from '../pictures/Buy.png'
 import LocationModal from './LocationModal'
 import { useState } from 'react'
+import Link from 'next/link'
 
 function Header() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -76,14 +77,14 @@ function Header() {
 
      
         <div className="flex items-center space-x-4">
-          <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-full">
+          <Link href={'/chat'} className="p-2 text-gray-600 hover:bg-gray-100 rounded-full">
             <Image
               src={msg}
               width={30}
               height={20}
               alt='Chat'
             />
-          </button>
+          </Link>
 
           <button className="p-2 text-gray-600 hover:bg-gray-100 rounded-full">
             <Image

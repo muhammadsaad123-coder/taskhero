@@ -7,7 +7,7 @@ function FoodCard({ imagePath, title,price,info, route }) {
       <Link href={route}>
         <div className='min-w-44 w-fit h-fit rounded-2xl  '>
             <div className=' bg-zinc-100 w-full p-4  rounded-xl'>
-                <button className='bg-purple-800 p-1 w-28 text-white rounded-xl'>Featured</button>
+                <button className='bg-purple-800 text-sm p-1 px-5 text-white rounded-md'>Featured</button>
                 <div className='flex justify-center '>
                 <Image src={imagePath} width={200} height={100} alt={title}/>
                 </div>
