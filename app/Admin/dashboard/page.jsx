@@ -1,196 +1,254 @@
 "use client"
 import Image from "next/image"
-import Link from "next/link"
-import {
-  Bell,
-  Search,
-  Home,
-  ShoppingBag,
-  Users,
-  Award,
-  UserCog,
-  Wallet,
-  BarChart,
-  MessageSquare,
-  Zap,
-  Users2,
-  Settings,
-  DollarSign,
-  Store,
-  Truck,
-} from "lucide-react"
+import { useState } from "react"
+import { DollarSign, Store, Users, Truck, MoreVertical } from "lucide-react"
+import Sidebar from "../components/sidebar"
+import Header from "../components/header"
+
+const chartData = [
+  { ios: 500, android: 400 },
+  { ios: 450, android: 350 },
+  { ios: 400, android: 300 },
+  { ios: 350, android: 250 },
+  { ios: 300, android: 200 },
+  { ios: 250, android: 150 },
+  { ios: 200, android: 100 },
+  { ios: 150, android: 50 },
+  { ios: 100, android: 0 },
+  { ios: 50, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+  { ios: 0, android: 0 },
+]
+
+const iosPercentage = 70
+const androidPercentage = 30
+const totalOrders = 1200
+const orderHistory = [
+  {
+    name: "John Doe",
+    price: 100,
+    status: "pending",
+    time: "2023-10-26 10:00",
+    avatar: "/placeholder.svg",
+  },
+  {
+    name: "Jane Doe",
+    price: 200,
+    status: "completed",
+    time: "2023-10-26 11:00",
+    avatar: "/placeholder.svg",
+  },
+  // Add more order history items here...
+]
+
+function getStatusColor(status) {
+  switch (status) {
+    case "pending":
+      return "bg-yellow-400"
+    case "completed":
+      return "bg-green-400"
+    case "failed":
+      return "bg-red-400"
+    default:
+      return "bg-gray-400"
+  }
+}
 
 export default function Dashboard() {
-  const menuItems = [
-    { icon: Home, label: "Dashboard", href: "/dashboard", active: true },
-    { icon: ShoppingBag, label: "Orders", href: "/orders" },
-    { icon: Users, label: "Customers", href: "/customers" },
-    { icon: Award, label: "Heroes", href: "/heroes" },
-    { icon: UserCog, label: "Drivers", href: "/drivers" },
-    { icon: Wallet, label: "Transactions", href: "/transactions" },
-    { icon: BarChart, label: "Analytics", href: "/analytics" },
-    { icon: Bell, label: "Notifications", href: "/notifications" },
-    { icon: Zap, label: "Ads", href: "/ads" },
-    { icon: Users2, label: "Employees and...", href: "/employees" },
-    { icon: MessageSquare, label: "Chat support", href: "/chat" },
-    { icon: Settings, label: "Settings", href: "/settings" },
-  ]
+  const [countries] = useState([
+    { name: "England", percentage: "50%", flag: "/admin/flags/gb.png", code: "GB" },
+    { name: "Germany", percentage: "20%", flag: "/admin/flags/de.svg", code: "DE" },
+    { name: "Finland", percentage: "15%", flag: "/admin/flags/fi.svg", code: "FI" },
+    { name: "Norway", percentage: "10%", flag: "/admin/flags/no.svg", code: "NO" },
+    { name: "Spain", percentage: "5%", flag: "/admin/flags/es.svg", code: "ES" },
+  ])
 
-  const countries = [
-    { name: "England", percentage: "50%", flag: "🇬🇧" },
-    { name: "Germany", percentage: "20%", flag: "🇩🇪" },
-    { name: "Finland", percentage: "15%", flag: "🇫🇮" },
-    { name: "Norway", percentage: "10%", flag: "🇳🇴" },
-    { name: "Spain", percentage: "5%", flag: "🇪🇸" },
-  ]
+  const [orderHistoryState, setOrderHistory] = useState([
+    {
+      name: "Lincoln Donin",
+      avatar: "/admin/avatars/1.jpg",
+      price: "250$",
+      status: "completed",
+      time: "03/12/2024 23:43",
+    },
+    { name: "Ruben Press", avatar: "/admin/avatars/2.jpg", price: "250$", status: "pending", time: "03/12/2024 23:43" },
+    { name: "Giana Mango", avatar: "/admin/avatars/3.jpg", price: "250$", status: "pending", time: "03/12/2024 23:43" },
+    {
+      name: "Cheyenne Ekstrom Bothman",
+      avatar: "/admin/avatars/4.jpg",
+      price: "250$",
+      status: "canceled",
+      time: "03/12/2024 23:43",
+    },
+    {
+      name: "Giana Baptista",
+      avatar: "/admin/avatars/5.jpg",
+      price: "250$",
+      status: "completed",
+      time: "03/12/2024 23:43",
+    },
+    // ... (other order history items)
+  ])
+
+  const [chartDataState] = useState(
+    Array.from({ length: 30 }, () => ({
+      ios: Math.floor(Math.random() * 100) + 300, // Random between 300-400
+      android: Math.floor(Math.random() * 100) + 200, // Random between 200-300
+    })),
+  )
+
+  const getStatusColor = (status) => {
+    switch (status) {
+      case "completed":
+        return "bg-green-500"
+      case "pending":
+        return "bg-yellow-500"
+      case "canceled":
+        return "bg-red-500"
+      default:
+        return "bg-gray-500"
+    }
+  }
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white border-r border-gray-100 fixed h-screen overflow-y-auto">
-        <div className="p-6">
-          <Image src="/admin/Logo.png" alt="TaskHero" width={140} height={40} className="mb-8" />
-          <nav className="space-y-1">
-            {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm ${
-                  item.active ? "bg-purple-50 text-purple-600" : "text-gray-600 hover:bg-gray-50"
-                }`}
-              >
-                <item.icon size={20} />
-                <span>{item.label}</span>
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </aside>
-
-      {/* Main Content */}
+    <div className="flex min-h-screen bg-[#F8F9FD]">
+      <Sidebar />
       <div className="flex-1 ml-64">
-        {/* Header */}
-        <header className="h-16 bg-white border-b border-gray-100 fixed right-0 left-64 top-0 z-10">
-          <div className="flex items-center justify-between h-full px-6">
-            <div className="relative w-96">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              <input
-                type="text"
-                placeholder="Search"
-                className="w-full h-10 pl-10 pr-4 rounded-lg bg-gray-50 border-none focus:ring-2 focus:ring-purple-600"
-              />
-            </div>
-            <div className="flex items-center space-x-4">
-              <button className="p-2 rounded-lg hover:bg-gray-50">
-                <Bell size={20} className="text-gray-600" />
-              </button>
-              <div className="flex items-center space-x-3">
-                <Image src="/admin/chat.jpeg" alt="Profile" width={36} height={36} className="rounded-full" />
-                <span className="text-gray-600">▼</span>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        {/* Main Content Area */}
+        <Header />
         <main className="pt-16 p-6">
-          {/* Hero Section with Stats */}
-          <div className="relative overflow-hidden bg-gradient-to-r from-purple-100 to-purple-50 rounded-2xl p-8 mb-6">
-            <h1 className="text-3xl font-bold text-purple-900 mb-8">Welcome back, Tony!</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-              <StatCard icon={DollarSign} label="Revenue" value="232K" />
-              <StatCard icon={Store} label="Places" value="237K" />
-              <StatCard icon={Users} label="Customers" value="252K" />
-              <StatCard icon={Truck} label="Drivers" value="123K" />
-            </div>
-            <div className="absolute top-0 right-0 w-2/3 h-full">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-300/20 to-purple-500/20 rounded-l-full transform translate-x-1/3" />
+          {/* Welcome Section */}
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#D9E6FF] to-[#8000FF] h-[220px] mb-6">
+            <div className="relative z-10 p-8">
+              <h1 className="text-[32px] font-bold text-[#8B3DFF] mb-12">Welcome back, Tony!</h1>
+              <div className="grid grid-cols-4 gap-16">
+                <StatCard icon={DollarSign} label="Revenue" value="232K" />
+                <StatCard icon={Store} label="Heroes" value="237K" />
+                <StatCard icon={Users} label="Customers" value="252K" />
+                <StatCard icon={Truck} label="Drivers" value="123K" />
+              </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Active Users Section */}
             <div className="lg:col-span-2 bg-white rounded-2xl p-6">
-              <h2 className="text-xl font-semibold mb-4">Active users right now</h2>
-              <div className="text-3xl font-bold mb-6">284</div>
+              <h2 className="text-xl font-semibold text-[#374151] mb-4">Active users right now</h2>
+              <div className="text-[32px] font-bold text-[#374151] mb-8">284</div>
 
-              {/* Country Stats */}
-              <div className="space-y-4">
-                {countries.map((country) => (
-                  <div key={country.name} className="flex items-center">
-                    <span className="w-8">{country.flag}</span>
-                    <span className="w-24">{country.name}</span>
-                    <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-purple-600 rounded-full" style={{ width: country.percentage }} />
+              <div className="flex gap-6">
+                <div className="flex-1 space-y-5">
+                  {countries.map((country) => (
+                    <div key={country.name} className="flex items-center">
+                      <div className="w-8 h-6 relative">
+                        <Image
+                          src={country.flag || "/placeholder.svg"}
+                          alt={`${country.name} flag`}
+                          fill
+                          className="object-cover rounded-sm"
+                        />
+                      </div>
+                      <span className="w-24 text-[15px] text-[#374151]">{country.name}</span>
+                      <div className="flex-1 h-2 bg-[#F3F4F6] rounded-full overflow-hidden">
+                        <div className="h-full bg-[#8B3DFF] rounded-full" style={{ width: country.percentage }} />
+                      </div>
+                      <span className="w-16 text-right text-[#6B7280] text-[15px]">{country.percentage}</span>
                     </div>
-                    <span className="w-16 text-right text-gray-600">{country.percentage}</span>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
 
-              {/* World Map Placeholder */}
-              <div className="mt-6 relative h-[300px] bg-gray-50 rounded-xl">
-                <Image src="/admin/driver.png" alt="World Map" fill className="object-contain p-4" />
+                <div className="w-[400px] relative">
+                  <Image src="/admin/world-map-dots.jpg" alt="World Map" fill className="object-contain opacity-80" />
+                </div>
               </div>
             </div>
 
             {/* Available Drivers Section */}
             <div className="bg-white rounded-2xl p-6">
-              <h2 className="text-xl font-semibold mb-6">Available drivers</h2>
+              <h2 className="text-xl font-semibold text-[#374151] mb-6">Available drivers</h2>
               <div className="space-y-4">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Total drivers:</span>
-                  <span className="font-semibold">500</span>
+                <div className="flex justify-between text-[15px]">
+                  <span className="text-[#6B7280]">Total drivers:</span>
+                  <span className="font-semibold text-[#374151]">500</span>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Now active:</span>
-                  <span className="font-semibold">232</span>
+                <div className="flex justify-between text-[15px]">
+                  <span className="text-[#6B7280]">Now active:</span>
+                  <span className="font-semibold text-[#374151]">232</span>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">On duty:</span>
-                  <span className="font-semibold">200</span>
+                <div className="flex justify-between text-[15px]">
+                  <span className="text-[#6B7280]">On duty:</span>
+                  <span className="font-semibold text-[#374151]">200</span>
                 </div>
               </div>
 
               {/* Donut Chart */}
-              <div className="mt-6 relative">
-                <div className="w-48 h-48 mx-auto">
-                  <div className="relative w-full h-full">
-                    <svg viewBox="0 0 36 36" className="w-full h-full">
-                      <path
-                        d="M18 2.0845
-                          a 15.9155 15.9155 0 0 1 0 31.831
-                          a 15.9155 15.9155 0 0 1 0 -31.831"
-                        fill="none"
-                        stroke="#E2E8F0"
-                        strokeWidth="3"
-                      />
-                      <path
-                        d="M18 2.0845
-                          a 15.9155 15.9155 0 0 1 0 31.831
-                          a 15.9155 15.9155 0 0 1 0 -31.831"
-                        fill="none"
-                        stroke="#7C3AED"
-                        strokeWidth="3"
-                        strokeDasharray="75, 100"
-                      />
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold">232</div>
-                        <div className="text-sm text-gray-600">/ 500</div>
-                      </div>
+              <div className="mt-8">
+                <div className="w-[180px] h-[180px] mx-auto relative">
+                  <svg viewBox="0 0 36 36" className="w-full h-full transform -rotate-90">
+                    <circle cx="18" cy="18" r="15.91549430918954" fill="none" stroke="#F3F4F6" strokeWidth="2.5" />
+                    <circle
+                      cx="18"
+                      cy="18"
+                      r="15.91549430918954"
+                      fill="none"
+                      stroke="#8B3DFF"
+                      strokeWidth="2.5"
+                      strokeDasharray="50 100"
+                    />
+                    <circle
+                      cx="18"
+                      cy="18"
+                      r="15.91549430918954"
+                      fill="none"
+                      stroke="#4C6FFF"
+                      strokeWidth="2.5"
+                      strokeDasharray="30 100"
+                      strokeDashoffset="-50"
+                    />
+                    <circle
+                      cx="18"
+                      cy="18"
+                      r="15.91549430918954"
+                      fill="none"
+                      stroke="#FFB547"
+                      strokeWidth="2.5"
+                      strokeDasharray="20 100"
+                      strokeDashoffset="-80"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-[#374151]">232</div>
+                      <div className="text-sm text-[#6B7280]">/ 500</div>
                     </div>
                   </div>
                 </div>
-                <div className="mt-6 flex justify-center gap-4">
+                <div className="mt-6 flex justify-center gap-6">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-purple-600" />
-                    <span className="text-sm text-gray-600">Available</span>
+                    <div className="w-3 h-3 rounded-full bg-[#8B3DFF]" />
+                    <span className="text-sm text-[#6B7280]">Available</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full bg-blue-500" />
-                    <span className="text-sm text-gray-600">On duty</span>
+                    <div className="w-3 h-3 rounded-full bg-[#4C6FFF]" />
+                    <span className="text-sm text-[#6B7280]">On duty</span>
                   </div>
                 </div>
               </div>
@@ -200,43 +258,155 @@ export default function Dashboard() {
           {/* Order Summary Section */}
           <div className="mt-6 bg-white rounded-2xl p-6">
             <div className="flex flex-wrap justify-between items-center mb-6">
-              <h2 className="text-xl font-semibold">Order summary</h2>
+              <h2 className="text-xl font-semibold text-[#374151]">Order summary</h2>
               <div className="flex gap-4">
-                <select className="bg-gray-50 border-none rounded-lg px-4 py-2 text-sm">
+                <select className="bg-[#F8F9FD] border-none rounded-lg px-4 py-2 text-sm text-[#6B7280]">
                   <option>Choose country</option>
                 </select>
-                <select className="bg-gray-50 border-none rounded-lg px-4 py-2 text-sm">
+                <select className="bg-[#F8F9FD] border-none rounded-lg px-4 py-2 text-sm text-[#6B7280]">
                   <option>09 FEB 2024</option>
                 </select>
-                <select className="bg-gray-50 border-none rounded-lg px-4 py-2 text-sm">
+                <select className="bg-[#F8F9FD] border-none rounded-lg px-4 py-2 text-sm text-[#6B7280]">
                   <option>09 AUG 2024</option>
                 </select>
               </div>
             </div>
 
-            {/* Bar Chart */}
-            <div className="h-[300px] relative">
-              {/* Chart would go here - simplified version shown */}
-              <div className="absolute bottom-0 left-0 right-0 flex justify-between h-64">
-                {[...Array(30)].map((_, i) => (
-                  <div key={i} className="w-6 flex flex-col justify-end gap-1">
-                    <div className="bg-purple-600 w-full" style={{ height: `${Math.random() * 100}%` }} />
-                    <div className="bg-blue-500 w-full" style={{ height: `${Math.random() * 50}%` }} />
+            <div className="flex gap-6">
+              <div className="flex-1 px-4">
+                <div className="relative h-[300px]">
+                  {/* Y-axis */}
+                  <div className="absolute left-0 top-0 bottom-6 w-12 flex flex-col justify-between text-xs text-[#6B7280]">
+                    {[600, 550, 500, 450, 400, 350, 300, 250, 200, 150, 100, 50, 0].map((value) => (
+                      <span key={value}>{value}</span>
+                    ))}
                   </div>
-                ))}
+
+                  {/* Chart Area */}
+                  <div className="absolute left-14 right-0 bottom-6 flex items-end justify-between h-[280px] px-2">
+                    {chartDataState.map((data, i) => (
+                      <div key={i} className="w-6 flex flex-col justify-end relative">
+                        <div
+                          className="bg-[#8B3DFF] w-full rounded-sm"
+                          style={{
+                            height: `${(data.ios / 600) * 280}px`,
+                          }}
+                        />
+                        <div
+                          className="bg-[#4C6FFF] w-full rounded-sm absolute bottom-0"
+                          style={{
+                            height: `${(data.android / 600) * 280}px`,
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* X-axis */}
+                  <div className="absolute left-14 right-0 bottom-0 flex justify-between">
+                    {Array.from({ length: 30 }, (_, i) => (
+                      <span key={i} className="text-xs text-[#6B7280]">
+                        {i + 1}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-48">
+                <h3 className="text-sm font-medium mb-4">Total orders</h3>
+                <div className="relative w-32 h-32">
+                  <svg viewBox="0 0 36 36" className="w-full h-full transform -rotate-90">
+                    <circle cx="18" cy="18" r="15.91549430918954" fill="none" stroke="#F3F4F6" strokeWidth="2.5" />
+                    <circle
+                      cx="18"
+                      cy="18"
+                      r="15.91549430918954"
+                      fill="none"
+                      stroke="#8B3DFF"
+                      strokeWidth="2.5"
+                      strokeDasharray="65 100"
+                    />
+                    <circle
+                      cx="18"
+                      cy="18"
+                      r="15.91549430918954"
+                      fill="none"
+                      stroke="#4C6FFF"
+                      strokeWidth="2.5"
+                      strokeDasharray="35 100"
+                      strokeDashoffset="-65"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-[#8B3DFF]">Total:</div>
+                      <div className="text-2xl font-bold text-[#374151]">32,234</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-4 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-[#8B3DFF]" />
+                    <span className="text-sm text-[#6B7280]">iOS</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-[#4C6FFF]" />
+                    <span className="text-sm text-[#6B7280]">Android</span>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
 
-            {/* Legend */}
-            <div className="mt-6 flex justify-end gap-4">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-purple-600" />
-                <span className="text-sm text-gray-600">iOS</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-blue-500" />
-                <span className="text-sm text-gray-600">Android</span>
-              </div>
+          {/* Order History Section */}
+          <div className="mt-6 bg-white rounded-2xl p-6">
+            <h2 className="text-xl font-semibold text-[#374151] mb-6">Order history</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="text-left text-sm text-gray-500">
+                    <th className="pb-4 font-normal">Name</th>
+                    <th className="pb-4 font-normal">Price</th>
+                    <th className="pb-4 font-normal">Status</th>
+                    <th className="pb-4 font-normal">Ordered time</th>
+                    <th className="pb-4 font-normal"></th>
+                  </tr>
+                </thead>
+                <tbody className="text-[15px]">
+                  {orderHistoryState.map((order, index) => (
+                    <tr key={index} className="border-t border-gray-100">
+                      <td className="py-4">
+                        <div className="flex items-center gap-3">
+                          <Image
+                            src={order.avatar || "/placeholder.svg"}
+                            alt={order.name}
+                            width={32}
+                            height={32}
+                            className="rounded-full"
+                          />
+                          <span className="font-medium text-[#374151]">{order.name}</span>
+                        </div>
+                      </td>
+                      <td className="py-4">
+                        <span className="text-[#8B3DFF] font-medium">{order.price}</span>
+                      </td>
+                      <td className="py-4">
+                        <div className="flex items-center gap-2">
+                          <div className={`w-2 h-2 rounded-full ${getStatusColor(order.status)}`} />
+                          <span className="text-[#374151] capitalize">{order.status}</span>
+                        </div>
+                      </td>
+                      <td className="py-4 text-[#6B7280]">{order.time}</td>
+                      <td className="py-4">
+                        <button className="p-2 hover:bg-gray-50 rounded-lg">
+                          <MoreVertical className="w-5 h-5 text-gray-400" />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </main>
@@ -247,15 +417,13 @@ export default function Dashboard() {
 
 function StatCard({ icon: Icon, label, value }) {
   return (
-    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6">
-      <div className="flex items-center space-x-4">
-        <div className="p-3 bg-white rounded-lg">
-          <Icon className="w-6 h-6 text-purple-600" />
-        </div>
-        <div>
-          <div className="text-2xl font-bold text-gray-900">{value}</div>
-          <div className="text-sm text-gray-600">{label}</div>
-        </div>
+    <div className="flex items-center space-x-3">
+      <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+        <Icon className="w-6 h-6 text-[#8B3DFF]" />
+      </div>
+      <div>
+        <div className="text-2xl font-bold text-white">{value}</div>
+        <div className="text-sm text-white/90">{label}</div>
       </div>
     </div>
   )
