@@ -4,12 +4,14 @@ import { useState } from "react";
 import Image from "next/image";
 import { FiSend } from "react-icons/fi";
 import { IoArrowBack } from "react-icons/io5";
+import profile from '../pictures/offerpic.png'
+
 
 const contactsData = [
-    { id: 1, name: "John Doe", message: "I can help with your task", time: "16:25", read: false, img: "/profile.jpg" },
-    { id: 2, name: "Jane Smith", message: "Meeting at 3 PM?", time: "15:40", read: true, img: "/profile.jpg" },
-    { id: 3, name: "Alex Brown", message: "Let's finalize the project", time: "14:10", read: true, img: "/profile.jpg" },
-    { id: 4, name: "Emily White", message: "Got it, thanks!", time: "12:00", read: false, img: "/profile.jpg" },
+    { id: 1, name: "John Doe", message: "I can help with your task", time: "16:25", read: false, img: profile },
+    { id: 2, name: "Jane Smith", message: "Meeting at 3 PM?", time: "15:40", read: true, img:profile },
+    { id: 3, name: "Alex Brown", message: "Let's finalize the project", time: "14:10", read: true, img: profile },
+    { id: 4, name: "Emily White", message: "Got it, thanks!", time: "12:00", read: false, img: profile },
 ];
 
 const messagesData = {

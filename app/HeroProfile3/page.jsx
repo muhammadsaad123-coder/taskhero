@@ -113,7 +113,7 @@ function page() {
             <div className='bg-gray-100'>
 
 
-                <Header />
+              
                 <div className='p-4  flex md:justify-normal justify-center gap-2 flex-wrap md:flex-nowrap'>
                     <div>
                         <HeroProfileCard />

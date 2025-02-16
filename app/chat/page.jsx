@@ -7,7 +7,7 @@ function page() {
         <div className='bg-gray-100'>
 
        
-            <Header />
+   
             <div className='mt-2 px-4 '>
                 <ChatScreen />
 

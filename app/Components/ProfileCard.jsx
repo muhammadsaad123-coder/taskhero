@@ -5,7 +5,7 @@ import profileicon from '../pictures/profile.png'
 
 export default function ProfileCard({ image, name, address, onClickProfile }) {
   return (
-    <div className=" shadow-md rounded-xl p-4 w-64 min-h-full bg-zinc-50 text-center relative pt-10">
+    <div className=" shadow-md rounded-xl p-4 w-52 min-h-full bg-zinc-50 text-center relative pt-10">
       {/* Bookmark Icon */}
       <div className="absolute top-4 right-4">
         <Image src={bookmark} alt="Bookmark Icon" width={20} height={20} />
@@ -17,7 +17,7 @@ export default function ProfileCard({ image, name, address, onClickProfile }) {
         </div>
       </div>
       {/* Name */}
-      <h2 className="text-lg font-semibold mb-1">{name}</h2>
+      <h2 className="text-lg font-semibold text-purple-800 mb-1">{name}</h2>
       {/* Rating */}
       <div className="flex justify-center mb-1">
         

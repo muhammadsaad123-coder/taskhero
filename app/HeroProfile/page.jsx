@@ -90,7 +90,6 @@ function page() {
       <div className='bg-zinc-100 h-fit'>
 
 
-        <Header />
         <div className='flex justify-start px-5 mt-4 flex-wrap md:flex-nowrap   gap-4'>
           <div className='h-fit'>
             <ProfileCard image={logo}

@@ -58,7 +58,7 @@ function page() {
     return (
         <>
             <div className='bg-gray-100'>
-                <Header />
+             
                 <div className='flex justify-center flex-wrap-reverse md:flex-nowrap gap-4 pr-4 '>
                     <div >
                         <div className="p-4 pb-2  md:pr-0   ">
