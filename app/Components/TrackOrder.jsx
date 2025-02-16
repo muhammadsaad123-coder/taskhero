@@ -31,9 +31,9 @@ const orders = [
 
 const TrackOrder = () => {
   return (
-    <div className="bg-white text-sm  p-4 mt-4 mx-4 rounded-lg shadow-md">
+    <div className="bg-white text-sm   p-4 mt-4 mx-4 rounded-lg shadow-md">
       <h2 className="text-lg font-semibold mb-2">Track Order</h2>
-      <div className="flex gap-4 w-full overflow-x-auto">
+      <div className="flex gap-4 w-full flex-wrap ">
         {orders.map((order) => (
           <Link href={order.link} key={order.id}>
             <div className="bg-gray-100 p-4 rounded-lg shadow-sm w-fit flex-shrink-0 cursor-pointer hover:bg-gray-200 transition">

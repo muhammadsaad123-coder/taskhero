@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import logo from '../pictures/Logo.png'
+import logo from '../pictures/Logo (1).png'
 import apple from '../pictures/applestore.png'
 import google from '../pictures/googleplay.png'
 const Footer = () => {
