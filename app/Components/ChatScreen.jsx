@@ -49,7 +49,7 @@ export default function ChatScreen() {
     };
 
     return (
-        <div className="h-screen flex flex-col md:flex-row gap-x-2 bg-gray-100">
+        <div className="h-screen   flex flex-col md:flex-row gap-x-2 bg-gray-100">
             {/* Inbox Sidebar - Visible on larger screens or when `showChat` is false */}
             <div
                 className={`w-full md:w-1/3 bg-white rounded-2xl border-r p-4 transition-all ${showChat ? "hidden md:block" : "block"

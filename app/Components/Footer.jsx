@@ -7,7 +7,7 @@ import apple from '../pictures/applestore.png'
 import google from '../pictures/googleplay.png'
 const Footer = () => {
   return (
-    <footer className="bg-white py-10   px-20">
+    <footer className="bg-white py-10    px-20">
       <div className="container mx-auto flex flex-col items-center md:flex-row justify-between">
         <div className="flex flex-col items-center mb-10 md:items-start  md:mb-0">
           <Image src={logo} alt="TaskHero Logo" width={250} height={50} /> {/* Replace with your logo path */}

@@ -8,7 +8,7 @@ function page() {
 
        
    
-            <div className='mt-2 px-4 '>
+            <div className='py-2 bg-gray-100 px-4 '>
                 <ChatScreen />
 
             </div>
