@@ -6,7 +6,7 @@ import pickup from '../pictures/Vector.png';
 import prority from '../pictures/prority.png';
 import standard from '../pictures/standard.png';
 import shudle from '../pictures/schudle.png';
-import driver from '../pictures/Driver.png';
+import driver from '../pictures/Driver (1).png';
 import ticket from '../pictures/Ticket.png';
 import arrow from '../pictures/Arrow - Right 2.png';
 import Image from 'next/image';

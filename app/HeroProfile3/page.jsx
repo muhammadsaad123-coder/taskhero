@@ -172,7 +172,7 @@ function page() {
                 </div>
             </div>
             <div className=' pt-0 -mt-2'>
-            <Footer/>
+
             </div>
             
         </>
