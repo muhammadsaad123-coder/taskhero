@@ -46,11 +46,13 @@ export default function Sidebar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm ${
-                  isActive ? "bg-purple-50 text-purple-600" : "text-gray-600 hover:bg-gray-50"
+                className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm transition ${
+                  isActive
+                    ? "bg-purple-50 text-purple-600 font-semibold"
+                    : "text-gray-600 hover:bg-gray-50"
                 }`}
               >
-                <item.icon size={20} />
+                <item.icon size={20} className={isActive ? "text-purple-600" : "text-gray-400"} />
                 <span>{item.label}</span>
               </Link>
             )
@@ -60,4 +62,3 @@ export default function Sidebar() {
     </aside>
   )
 }
-
