@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import { User, Calendar, Mail, Phone, MapPin, Flag, ChevronDown } from "lucide-react";
+import { User, Calendar, Mail, Phone, MapPin, Flag, ChevronDown, Camera } from "lucide-react";
 
 function Profile({ profileImage }) {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ function Profile({ profileImage }) {
     phone: "111 467 378 399",
     address: "Times Square NYC, Manhattan",
   });
+  const [image, setImage] = useState(profileImage);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,19 +21,33 @@ function Profile({ profileImage }) {
     }));
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImage(imageUrl);
+    }
+  };
+
   return (
-    <div className="py-4  max-w-md mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+    <div className="py-4 max-w-md mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl">
       <h2 className="text-lg font-semibold mb-4 text-center">Edit Profile</h2>
 
       {/* Profile Image */}
       <div className="flex justify-center mb-6 relative">
-        <Image
-          src={profileImage}
-          width={80}
-          height={80}
-          className="rounded-full border-2 border-gray-300"
-          alt="User"
-        />
+        <label className="cursor-pointer relative">
+          <input type="file" accept="image/*" className="hidden" onChange={handleImageChange} />
+          <Image
+            src={image}
+            width={80}
+            height={80}
+            className=" rounded-full border-2 border-gray-300 object-cover"
+            alt="User"
+          />
+          <div className="absolute bottom-0 right-0 bg-gray-800 p-1 rounded-full">
+            <Camera className="text-white" size={16} />
+          </div>
+        </label>
       </div>
 
       {/* Form Fields */}

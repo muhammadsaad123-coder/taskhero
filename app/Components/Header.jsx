@@ -82,12 +82,15 @@ function Header() {
 
       <nav className="bg-white shadow-md p-1 pl-2 pr-4 flex items-center justify-around">
 
-        <div className='flex flex-wrap gap-x-20 gap-y-2 justify-center  '>
+        <div className='flex flex-wrap gap-x-44 md:gap-x-64  xl:gap-x-72 gap-y-2 justify-around  '>
 
 
           <div className='flex justify-start gap-4 self-start'>
             <div className="flex  items-center">
-              <Image src={logo} alt="TaskHero Logo" width={150} height={40} />
+              <Link href={'/'}>
+              
+              <Image src={logo} alt="TaskHero Logo" width={160} height={40} />
+              </Link>
             </div>
 
 
@@ -95,7 +98,7 @@ function Header() {
       <input
         type="text"
         placeholder="Search"
-        className="w-36 sm:w-36 md:w-44 xl:w-56 p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+        className="w-36 bg-gray-100 sm:w-36 md:w-44 xl:w-56 p-4 py-1.5 mt-1 rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         onKeyDown={handleKeyDown} // Detect Enter key press

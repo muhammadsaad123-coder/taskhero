@@ -12,6 +12,7 @@ const contactsData = [
     { id: 2, name: "Jane Smith", message: "Meeting at 3 PM?", time: "15:40", read: true, img:profile },
     { id: 3, name: "Alex Brown", message: "Let's finalize the project", time: "14:10", read: true, img: profile },
     { id: 4, name: "Emily White", message: "Got it, thanks!", time: "12:00", read: false, img: profile },
+    
 ];
 
 const messagesData = {
@@ -49,7 +50,7 @@ export default function ChatScreen() {
     };
 
     return (
-        <div className="h-screen   flex flex-col md:flex-row gap-x-2 bg-gray-100">
+        <div className="h-fit   flex flex-col md:flex-row gap-x-2 bg-gray-100">
             {/* Inbox Sidebar - Visible on larger screens or when `showChat` is false */}
             <div
                 className={`w-full md:w-1/3 bg-white rounded-2xl border-r p-4 transition-all ${showChat ? "hidden md:block" : "block"
@@ -99,7 +100,7 @@ export default function ChatScreen() {
 
             {/* Chat Section - Visible when a chat is selected */}
             <div
-                className={`w-full md:flex-1 flex flex-col h-full bg-white transition-all ${showChat ? "block" : "hidden md:block"
+                className={`w-full md:flex-1 flex flex-col h-fit min-h-96 bg-white transition-all ${showChat ? "block" : "hidden md:block"
                     }`}
             >
                 {/* Header */}

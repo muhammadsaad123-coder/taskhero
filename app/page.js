@@ -60,7 +60,7 @@ export default function Home() {
   const FoodData = [
     {
       imagePath: foodlogo, // Replace with your image path
-      title: "Electronics",
+      title: "Double Sausage and Egg Muffin ",
       route: "/electronics", // Target route
       price: 20,
       info: '441 Kcal'
@@ -68,14 +68,14 @@ export default function Home() {
     },
     {
       imagePath: foodlogo, // Replace with your image path
-      title: "Electronics",
+      title: "Double Sausage and Egg Muffin ",
       route: "/electronics", // Target route
       price: 20,
       info: '441 Kcal'
 
     }, {
       imagePath: foodlogo, // Replace with your image path
-      title: "Electronics",
+      title: "Double Sausage and Egg Muffin ",
       route: "/electronics", // Target route
       price: 20,
       info: '441 Kcal'
@@ -167,7 +167,7 @@ export default function Home() {
   
        
         <div className="bg-white p-4 mt-4 mb-4 px-8 rounded-xl shadow-md mx-4  ">
-          <h1 className="font-bold flex justify-center md:justify-normal  text-xl mb-2">Categories</h1>
+          <h1 className="font-bold flex justify-center md:justify-normal   mb-2">Categories</h1>
           <div className="flex flex-wrap gap-2 justify-normal ">
             {cardData.map((item, index) => (
               <Card
@@ -180,7 +180,7 @@ export default function Home() {
           </div>
         </div>
         <div className=" p-5 bg-white px-8  mx-4 mb-4 shadow-md rounded-xl">
-          <h1 className="font-bold flex justify-center md:justify-normal text-xl mb-2 ">Categories</h1>
+          <h1 className="font-bold flex justify-center md:justify-normal  mb-2 ">Featured Eatables</h1>
           <div className="flex flex-wrap gap-4 justify-center md:justify-normal">
             {FoodData.map((item, index) => (
               <FoodCard
@@ -231,7 +231,7 @@ export default function Home() {
           </div>
         </div>
         <hr className="text-zinc-700 " />
-        <div id="banner" className="HeroSection lg:visible invisible  w-full h-96   mb-10 ">
+        <div id="banner" className="HeroSection lg:visible invisible  w-full lg:h-96 h-0 mb-0   lg:mb-10 ">
 
 
         </div>
