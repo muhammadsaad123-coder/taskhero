@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -21,22 +21,22 @@ export default function Sidebar() {
   const pathname = usePathname()
 
   const menuItems = [
-    { icon: Home, label: "Dashboard", href: "/admin/dashboard" },
-    { icon: ShoppingBag, label: "Orders", href: "/admin/orders" },
-    { icon: Users, label: "Customers", href: "/admin/customers" },
-    { icon: Award, label: "Heroes", href: "/admin/heroes" },
-    { icon: UserCog, label: "Drivers", href: "/admin/drivers" },
-    { icon: Wallet, label: "Transactions", href: "/admin/transactions" },
-    { icon: BarChart, label: "Analytics", href: "/admin/analytics" },
-    { icon: Bell, label: "Notifications", href: "/admin/notifications" },
-    { icon: Zap, label: "Ads", href: "/admin/ads" },
-    { icon: Users2, label: "Employees and...", href: "/admin/employees" },
-    { icon: MessageSquare, label: "Chat support", href: "/admin/chat" },
-    { icon: Settings, label: "Settings", href: "/admin/settings" },
+    { icon: Home, label: "Dashboard", href: "/Admin/dashboard" },
+    { icon: ShoppingBag, label: "Orders", href: "/Admin/orders" },
+    { icon: Users, label: "Customers", href: "/Admin/customers" },
+    { icon: Award, label: "Heroes", href: "/Admin/heroes" },
+    { icon: UserCog, label: "Drivers", href: "/Admin/drivers" },
+    { icon: Wallet, label: "Transactions", href: "/Admin/transactions" },
+    { icon: BarChart, label: "Analytics", href: "/Admin/analytics" },
+    { icon: Bell, label: "Notifications", href: "/Admin/Notifications" },
+    { icon: Zap, label: "Ads", href: "/Admin/ads" },
+    { icon: Users2, label: "Employees and...", href: "/Admin/employees" },
+    { icon: MessageSquare, label: "Chat support", href: "/Admin/chat" },
+    { icon: Settings, label: "Settings", href: "/Admin/settings" },
   ]
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-100 h-screen fixed left-0 top-0 overflow-y-auto">
+    <aside className="w-64 bg-white border-r border-gray-100 h-fit  left-0 top-0 ">
       <div className="p-6">
         <Image src="/admin/Logo.png" alt="TaskHero" width={140} height={40} className="mb-8" />
         <nav className="space-y-1">

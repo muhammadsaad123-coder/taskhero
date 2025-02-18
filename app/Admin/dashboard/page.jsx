@@ -120,7 +120,7 @@ export default function Dashboard() {
   return (
     <div className="flex min-h-screen bg-[#F8F9FD]">
       <Sidebar />
-      <div className="flex-1 ml-64">
+      <div className="flex-1 mt-4">
         <Header />
         <main className="pt-16 p-6">
           {/* Welcome Section */}

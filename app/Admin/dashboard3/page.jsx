@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Image from "next/image"
 import Sidebar from "../components/sidebar"
 import Header from "../components/header"
@@ -8,7 +8,7 @@ export default function DriverMonitoring() {
   return (
     <div className="flex min-h-screen bg-[#F8F9FD]">
       <Sidebar />
-      <div className="flex-1 ml-64">
+      <div className="flex-1 ">
         <Header />
         <main className="pt-16 p-6">
           {/* Breadcrumb */}
