@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import Image from "next/image"
 import { useState } from "react"
 import { DollarSign, Store, Users, Truck, MoreVertical } from "lucide-react"
@@ -116,18 +116,6 @@ export default function Dashboard() {
     })),
   )
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "completed":
-        return "bg-green-500"
-      case "pending":
-        return "bg-yellow-500"
-      case "canceled":
-        return "bg-red-500"
-      default:
-        return "bg-gray-500"
-    }
-  }
 
   return (
     <div className="flex min-h-screen bg-[#F8F9FD]">

@@ -35,15 +35,15 @@ export default function ServiceCard({ image, title, rating, reviews, description
             height={16}
             className="mr-1"
           />
-          <span className="text-purple-600 font-medium">{rating}</span>
+          <span className="text-purple-800 font-medium">{rating}</span>
           <span className="ml-1">({reviews})</span>
         </div>
         {/* Description */}
-        <p className="text-gray-500 mt-2">{description}</p>
+        <p className="text-gray-700 mt-2">{description}</p>
         {/* Price */}
-        <p className="text-sm text-purple-600 font-semibold mt-3">
-          From {price}
-        </p>
+        <span className="text-sm flex justify-end relative top-0   sm:top-16  text-purple-600 font-semibold mt-3">
+          From  <span className="text-purple-800 font-semibold ml-1">{price}</span> 
+        </span>
       </div>
     </div>
   );

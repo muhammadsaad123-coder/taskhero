@@ -110,10 +110,11 @@ function page() {
     };
     return (
         <>
+        <Header/>
             <div className='bg-gray-100'>
 
 
-                <Header />
+              
                 <div className='p-4  flex md:justify-normal justify-center gap-2 flex-wrap md:flex-nowrap'>
                     <div>
                         <HeroProfileCard />
@@ -172,8 +173,9 @@ function page() {
                 </div>
             </div>
             <div className=' pt-0 -mt-2'>
-            <Footer/>
+
             </div>
+            <Footer/>
             
         </>
     )

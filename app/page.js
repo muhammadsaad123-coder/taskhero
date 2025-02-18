@@ -12,6 +12,8 @@ import ServiceImage from './pictures/Rectangle 203.png'
 import DownloadApp from './pictures/Banner1 1.png'
 import Footer from "./Components/Footer";
 import Hero from "./Components/Hero";
+import TrackOrder from "./Components/TrackOrder";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -55,181 +57,189 @@ export default function Home() {
       route: "/electronics", // Target route
     },
   ];
-const FoodData=[
-  {
+  const FoodData = [
+    {
       imagePath: foodlogo, // Replace with your image path
-      title: "Electronics",
+      title: "Double Sausage and Egg Muffin ",
       route: "/electronics", // Target route
-      price:20,
-      info:'441 Kcal'
+      price: 20,
+      info: '441 Kcal'
 
-  },
-  {
-    imagePath: foodlogo, // Replace with your image path
-    title: "Electronics",
-    route: "/electronics", // Target route
-    price:20,
-    info:'441 Kcal'
+    },
+    {
+      imagePath: foodlogo, // Replace with your image path
+      title: "Double Sausage and Egg Muffin ",
+      route: "/electronics", // Target route
+      price: 20,
+      info: '441 Kcal'
 
-},{
-  imagePath: foodlogo, // Replace with your image path
-  title: "Electronics",
-  route: "/electronics", // Target route
-  price:20,
-  info:'441 Kcal'
+    }, {
+      imagePath: foodlogo, // Replace with your image path
+      title: "Double Sausage and Egg Muffin ",
+      route: "/electronics", // Target route
+      price: 20,
+      info: '441 Kcal'
 
-},
-]
-const ProfileData=[
-  {
-    image:hero,
-    name:"John",
-    address:"Wallstreet Avenue, NY, USA"
-  },
-  {
-    image:hero,
-    name:"John",
-    address:"Wallstreet Avenue, NY, USA"
-  }, {
-    image:hero,
-    name:"John",
-    address:"Wallstreet Avenue, NY, USA"
-  },
-  {
-    image:hero,
-    name:"John",
-    address:"Wallstreet Avenue, NY, USA"
-  }, {
-    image:hero,
-    name:"John",
-    address:"Wallstreet Avenue, NY, USA"
-  }, {
-    image:hero,
-    name:"John",
-    address:"Wallstreet Avenue, NY, USA"
-  }, {
-    image:hero,
-    name:"John",
-    address:"Wallstreet Avenue, NY, USA"
-  }, {
-    image:hero,
-    name:"John",
-    address:"Wallstreet Avenue, NY, USA"
-  },
- 
-]
-const ServiceData=[
-  {
-    image:ServiceImage,
-    title:"product",
-    rating:'4.0',
-    reviews:"900+",
-    description:"I will provide this service",
-    price:"$25/hr"
-  },
-  {
-    image:ServiceImage,
-    title:"product",
-    rating:'4.0',
-    reviews:"900+",
-    description:"I will provide this service",
-    price:"$25/hr"
-  }, {
-    image:ServiceImage,
-    title:"product",
-    rating:'4.0',
-    reviews:"900+",
-    description:"I will provide this service",
-    price:"$25/hr"
-  }, {
-    image:ServiceImage,
-    title:"product",
-    rating:'4.0',
-    reviews:"900+",
-    description:"I will provide this service",
-    price:"$25/hr"
-  },
-  
-]
+    },
+  ]
+  const ProfileData = [
+    {
+      image: hero,
+      name: "John",
+      address: "Wallstreet Avenue, NY, USA"
+    },
+    {
+      image: hero,
+      name: "John",
+      address: "Wallstreet Avenue, NY, USA"
+    }, {
+      image: hero,
+      name: "John",
+      address: "Wallstreet Avenue, NY, USA"
+    },
+    {
+      image: hero,
+      name: "John",
+      address: "Wallstreet Avenue, NY, USA"
+    }, {
+      image: hero,
+      name: "John",
+      address: "Wallstreet Avenue, NY, USA"
+    }, {
+      image: hero,
+      name: "John",
+      address: "Wallstreet Avenue, NY, USA"
+    }, {
+      image: hero,
+      name: "John",
+      address: "Wallstreet Avenue, NY, USA"
+    }, {
+      image: hero,
+      name: "John",
+      address: "Wallstreet Avenue, NY, USA"
+    },
+
+  ]
+  const ServiceData = [
+    {
+      image: ServiceImage,
+      title: "product",
+      rating: '4.0',
+      reviews: "900+",
+      description: "I will provide this service",
+      price: "$25/hr"
+    },
+    {
+      image: ServiceImage,
+      title: "product",
+      rating: '4.0',
+      reviews: "900+",
+      description: "I will provide this service",
+      price: "$25/hr"
+    }, {
+      image: ServiceImage,
+      title: "product",
+      rating: '4.0',
+      reviews: "900+",
+      description: "I will provide this service",
+      price: "$25/hr"
+    }, {
+      image: ServiceImage,
+      title: "product",
+      rating: '4.0',
+      reviews: "900+",
+      description: "I will provide this service",
+      price: "$25/hr"
+    },
+
+  ]
   return (
     <>
-    <div className="w-full">
+    <Header/>
+      <div className="w-full bg-gray-50 ">
+
+
+
       
 
-    
-      <Header />
-      <Hero/>
-      <div className="bg-white p-5  ">
-        <h1 className="font-bold pl-16 text-2xl mb-2">Categories</h1>
-        <div className="flex flex-wrap gap-4 justify-center">
-          {cardData.map((item, index) => (
-            <Card
-              key={index}
-              imagePath={item.imagePath}
-              title={item.title}
-              route={item.route}
-            />
-          ))}
-        </div>
-      </div>
-      <hr className="text-zinc-700"/>
-      <div className=" p-5  ">
-        <h1 className="font-bold pl-16 text-2xl mb-2 ">Categories</h1>
-        <div className="flex flex-wrap gap-4 justify-center">
-          {FoodData.map((item, index) => (
-            <FoodCard
-              key={index}
-              imagePath={item.imagePath}
-              title={item.title}
-              price={item.price}
-              info={item.info}
-              route={item.route}
-            />
-          ))}
-        </div>
-      </div>
-      <hr className="text-zinc-700 "/>
-
-
-      <h1 className="pl-16  font-bold mt-8">Popular heroes in your Region</h1>
-      <div className=" p-5 w-full justify-center  flex-wrap gap-4 flex items-start ">
+        <Hero />
+      
+        <TrackOrder/>
+  
        
-       {ProfileData.map((item,index)=>(
-        <ProfileCard
-        key={index}
-        image={item.image}
-        name={item.name}
-        address={item.address}
-        onClickProfile={handleProfileClick}
-      />
+        <div className="bg-white p-4 mt-4 mb-4 px-8 rounded-xl shadow-md mx-4  ">
+          <h1 className="font-bold flex justify-center md:justify-normal   mb-2">Categories</h1>
+          <div className="flex flex-wrap gap-2 justify-normal ">
+            {cardData.map((item, index) => (
+              <Card
+                key={index}
+                imagePath={item.imagePath}
+                title={item.title}
+                route={item.route}
+              />
+            ))}
+          </div>
+        </div>
+        <div className=" p-5 bg-white px-8  mx-4 mb-4 shadow-md rounded-xl">
+          <h1 className="font-bold flex justify-center md:justify-normal  mb-2 ">Featured Eatables</h1>
+          <div className="flex flex-wrap gap-4 justify-center md:justify-normal">
+            {FoodData.map((item, index) => (
+              <FoodCard
+                key={index}
+                imagePath={item.imagePath}
+                title={item.title}
+                price={item.price}
+                info={item.info}
+                route={item.route}
+              />
+            ))}
+          </div>
 
-       ))} 
+          <hr className="text-zinc-700 mt-8 " />
+
+
+          <h1 className="  mb-4 font-bold flex md:justify-normal justify-center mt-8">Popular heroes in your Region</h1>
+          <div className="  w-full md:justify-normal justify-center flex-wrap gap-6  flex items-start ">
+
+            {ProfileData.map((item, index) => (
+              <ProfileCard
+                key={index}
+                image={item.image}
+                name={item.name}
+                address={item.address}
+                onClickProfile={handleProfileClick}
+              />
+
+            ))}
+
+          </div>
+          <hr className="text-zinc-700 mt-8 " />
+          <h1 className=" mb-4 flex justify-center md:justify-normal font-bold mt-8">Popular Service in your Region</h1>
+          <div className=" flex  flex-wrap gap-x-8 gap-y-8 items-start justify-normal">
+            {ServiceData.map((item, index) => (
+              <ServiceCard
+                key={index}
+                image={item.image}
+                title={item.title}
+                rating={item.rating}
+                reviews={item.reviews}
+                description={item.description}
+                price={item.price}
+              />
+
+            ))}
+
+          </div>
+        </div>
+        <hr className="text-zinc-700 " />
+        <div id="banner" className="HeroSection lg:visible invisible  w-full lg:h-96 h-0 mb-0   lg:mb-10 ">
+
+
+        </div>
+      </div>
+      <Footer/>
       
-    </div>
-    <h1 className="pl-16  font-bold mt-8">Popular Service in your Region</h1>
-    <div className=" flex p-5 flex-wrap gap-x-8 gap-y-8 items-start justify-center">
-      {ServiceData.map((item,index)=>(
-         <ServiceCard
-         key={index}
-         image={item.image}
-         title={item.title}
-         rating={item.rating}
-         reviews={item.reviews}
-         description={item.description}
-         price={item.price}
-       />
 
-      ))}
-     
-    </div>
-    <hr className="text-zinc-700 "/>
-    <div id="banner" className="HeroSection  w-full h-96   mb-10 ">
-     
-
-    </div>
-    </div>
-    <Footer/>
-   
     </>
   );
 }
