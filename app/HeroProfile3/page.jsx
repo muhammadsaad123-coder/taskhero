@@ -110,6 +110,7 @@ function page() {
     };
     return (
         <>
+        <Header/>
             <div className='bg-gray-100'>
 
 
@@ -174,6 +175,7 @@ function page() {
             <div className=' pt-0 -mt-2'>
 
             </div>
+            <Footer/>
             
         </>
     )

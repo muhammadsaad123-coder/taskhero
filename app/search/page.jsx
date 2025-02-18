@@ -4,6 +4,8 @@ import { FaStar } from 'react-icons/fa';
 import { IoLocationOutline } from 'react-icons/io5';
 import ServiceImage from '../pictures/Rectangle 203.png';
 import ServiceCard from '../Components/ServiceCard';
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 
 function Page() {
   const ServiceData = Array(9).fill({
@@ -18,6 +20,9 @@ function Page() {
   const [budget, setBudget] = useState([575, 1500]);
 
   return (
+    <>
+    <Header/>
+   
     <div className='flex flex-wrap bg-gray-100 p-6 gap-6'>
       {/* Sidebar Filters */}
       <div className='sm:w-72 w-full  bg-white p-6 rounded-lg shadow-md'>
@@ -98,6 +103,8 @@ function Page() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

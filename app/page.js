@@ -155,6 +155,7 @@ export default function Home() {
   ]
   return (
     <>
+    <Header/>
       <div className="w-full bg-gray-50 ">
 
 
@@ -236,6 +237,7 @@ export default function Home() {
 
         </div>
       </div>
+      <Footer/>
       
 
     </>

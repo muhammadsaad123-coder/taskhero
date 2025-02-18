@@ -97,7 +97,7 @@ function page() {
 
   return (
     <>
-  
+      <Header/>
       <div className='py-5 px-8'>
         <h1 className='text-xl font-bold'>Catagory</h1>
         <input type="text"

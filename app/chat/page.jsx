@@ -1,9 +1,11 @@
 import React from 'react'
 import Header from '../Components/Header'
 import ChatScreen from '../Components/ChatScreen'
+import Footer from '../Components/Footer'
 function page() {
     return (
         <>
+        <Header/>
         <div className='bg-gray-100'>
 
        
@@ -13,6 +15,7 @@ function page() {
 
             </div>
             </div>
+            <Footer/>
         </>
     )
 }

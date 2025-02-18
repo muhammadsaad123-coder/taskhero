@@ -87,6 +87,7 @@ function page() {
   ]
   return (
     <>
+    <Header/>
       <div className='bg-zinc-100 h-fit'>
 
 
@@ -141,7 +142,7 @@ function page() {
   
      </div>
      
-      
+      <Footer/>
      
      
     

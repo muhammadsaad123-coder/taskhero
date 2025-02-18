@@ -54,6 +54,7 @@ function page() {
     ];
     return (
         <>
+        <Header/>
             <div className='bg-gray-100'>
            
                 <div className='flex justify-center flex-wrap-reverse md:flex-nowrap '>
@@ -91,6 +92,7 @@ function page() {
                 </div>
 
             </div>
+            <Footer/>
         </>
     )
 }

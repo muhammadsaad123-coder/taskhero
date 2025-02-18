@@ -7,6 +7,8 @@ import Image from 'next/image';
 
 import OrderSummary from '../Components/OrderSummary';
 import LiveTracking from '../Components/LiveTracking'; // New Component
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
 
 const CartItem = ({ item }) => {
   return (
@@ -34,6 +36,7 @@ function Page() {
 
   return (
     <>
+    <Header/>
       <div className='bg-gray-50'>
       
         <div className='flex sm:w-full md:flex-nowrap flex-wrap w-full gap-2 p-2'>
@@ -68,6 +71,7 @@ function Page() {
           )}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

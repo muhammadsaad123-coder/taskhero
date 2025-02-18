@@ -2,6 +2,7 @@
 import React from 'react'
 import Header from '../Components/Header'
 import Addtocard from '../Components/Addtocard'
+import Footer from '../Components/Footer'
 
 
 function page() {
@@ -12,8 +13,9 @@ function page() {
     return (
         <>
       
-         
+         <Header/>
          <Addtocard/>
+         <Footer/>
          
         
 
