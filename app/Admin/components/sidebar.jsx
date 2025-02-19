@@ -25,8 +25,8 @@ export default function Sidebar() {
 
   const menuItems = [
     { icon: Home, label: "Dashboard", href: "/Admin/dashboard" },
-    { icon: ShoppingBag, label: "Orders", href: "/Admin/orders" },
-    { icon: Users, label: "Customers", href: "/Admin/customers" },
+    { icon: ShoppingBag, label: "Orders", href: "/Admin/order2" },
+    { icon: Users, label: "Customers", href: "/Admin/customers1" },
     { icon: Award, label: "Heroes", href: "/Admin/heroes" },
     { icon: UserCog, label: "Drivers", href: "/Admin/drivers" },
     { icon: Wallet, label: "Transactions", href: "/Admin/transactions" },
