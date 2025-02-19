@@ -230,7 +230,7 @@ export default function OrderDetails() {
                   </div>
                 </div>
 
-                {/* Delivery Details */}
+                {/* Delivery Details check */}
                 <div>
                   <h2 className="text-lg font-medium text-[#374151] mb-4">Delivery details</h2>
                   <div className="space-y-4">
