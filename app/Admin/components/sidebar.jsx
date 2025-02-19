@@ -15,10 +15,13 @@ import {
   Zap,
   Users2,
   Settings,
+  Menu,
 } from "lucide-react"
+import { useState } from "react"
 
 export default function Sidebar() {
   const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false)
 
   const menuItems = [
     { icon: Home, label: "Dashboard", href: "/Admin/dashboard" },
@@ -36,9 +39,25 @@ export default function Sidebar() {
   ]
 
   return (
-    <aside className="w-64 bg-white border-r border-gray-100 h-fit  left-0 top-0 ">
-      <div className="p-6">
-        <Image src="/admin/Logo.png" alt="TaskHero" width={140} height={40} className="mb-8" />
+    <>
+      <button
+        className="md:hidden p-3 focus:outline-none"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <Menu size={24} />
+      </button>
+
+      <aside
+        className={`fixed md:relative md:w-64 bg-white border-r border-gray-100 h-full left-0 top-0 p-6 transform transition-transform ease-in-out duration-300 z-50 ${
+          isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        }`}
+      >
+        <div className="flex justify-between items-center mb-8">
+          <Image src="/admin/Logo.png" alt="TaskHero" width={140} height={40} />
+          <button className="md:hidden" onClick={() => setIsOpen(false)}>
+            ✕
+          </button>
+        </div>
         <nav className="space-y-1">
           {menuItems.map((item) => {
             const isActive = pathname === item.href
@@ -58,7 +77,7 @@ export default function Sidebar() {
             )
           })}
         </nav>
-      </div>
-    </aside>
+      </aside>
+    </>
   )
 }
